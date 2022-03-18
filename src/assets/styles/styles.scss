@@ -1,0 +1,685 @@
+$white: #f9f9f9;
+$white2: #ffffff;
+$white3: #ecebe9;
+$black: #303030;
+$black2: #5e5e5e;
+$brown-shade: #cfb995;
+$width: 86%;
+$red: #ff5b5b;
+$pastel-orange: #ff915b;
+$pale-orange: #ffbe5b;
+$light-gold: #ffdf5b;
+$kiwi-green: #8fe360;
+$weird-green: #57e690;
+$blue: #57dbe6;
+$grey: #b2b2b2;
+
+@mixin flex-center($flex: flex) {
+    display: $flex;
+    justify-content: center;
+}
+
+@mixin box-colors($color: $red) {
+    background-color: $color;
+}
+
+@mixin joke-title-button($bg-color: $kiwi-green, $padding: 3px 0 3px 0px) {
+    width: fit-content;
+    box-sizing: border-box;
+    text-align: center;
+    padding: $padding;
+    border-radius: 20px;
+    background-color: $bg-color;
+    font-size: 12px;
+    font-weight: bold;
+    color: $white;
+}
+
+@mixin icons($url, $dimension: 18px) {
+    display: inline-block;
+    background: url($url);
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: $dimension;
+    height: $dimension;
+}
+
+@mixin reaction-text($color) {
+    color: $color;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+@mixin rounded-icon-background($color) {
+    display: inline-flex;
+    background-color: $color;
+    padding: 6px;
+    border-radius: 50px;
+}
+.page-body {
+    width: 100%;
+    background-color: $white;
+}
+.container {
+    width: $width;
+    @include flex-center(inline-block);
+}
+.flex-center {
+    @include flex-center();
+}
+.mb-50 {
+    margin-bottom: 50px !important;
+}
+.mt-5{
+    margin-top: 5px;
+}
+.mt-50 {
+    margin-top: 50px !important;
+}
+.ml-10 {
+    margin-left: 10px;
+}
+.pr-10 {
+    padding-right: 10px;
+}
+.right {
+    float: right;
+}
+
+.cl-container {
+    display: flex;
+    column-gap: 20px;
+}
+
+.top-nav {
+    overflow: hidden;
+    background-color: $black;
+    width: auto;
+    margin: 0;
+    @include flex-center;
+    .container {
+        width: $width;
+        align-content: center;
+        justify-content: end;
+        display: flex;
+        flex-wrap: nowrap;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            align-content: center;
+            float: right;
+            height: 19px;
+            margin: 20px 7px 21px 7px;
+            width: 206px;
+            a {
+                display: flex;
+                text-decoration: none;
+                color: $white;
+                width: 100%;
+                text-align: center;
+            }
+
+            ul {
+                list-style-type: none;
+                li {
+                    margin: 20px 64px 21px 0px;
+                    display: none;
+                }
+            }
+        }
+    }
+    .mobile-toggle {
+        display: none;
+    }
+}
+.header {
+    background-image: url("../images/bitmap@3x.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: auto;
+    width: 100%;
+
+    .header-content {
+        padding-bottom: 70px;
+        margin: auto;
+        width: fit-content;
+        .header-title {
+            padding: 60px 0px 5px 0px;
+            font-size: 48px;
+            color: $brown-shade;
+        }
+        .header-caption {
+            color: $white;
+            font-weight: bold;
+            font-size: 20px;
+            align-content: justify;
+            width: 100%;
+            padding-bottom: 50px;
+        }
+        .search {
+            width: 450px;
+            height: 35px;
+            border: 1px solid $white;
+            border-radius: 5px;
+
+            input {
+                width: 350px;
+                height: 35px;
+                border: 0;
+                font-size: 14px;
+                outline: none;
+                background-color: rgba(255, 255, 255, 0);
+                color: white;
+                font-size: 16px;
+                padding-bottom: 10px;
+                margin: 0 10px;
+            }
+        }
+    }
+}
+
+//JOKES TITILE CARDS
+.cl-full {
+    display: inline-flex;
+    align-content: center;
+    width: $width;
+    padding: 80px 0 0 0;
+    flex-wrap: wrap;
+    margin: 0;
+    column-gap: 2%;
+}
+.cl-2 {
+    min-width: 18%;
+    max-width: 18%;
+    flex: 1 1 18%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    text-align: center;
+    padding: 14px 0 14px 0px;
+    color: $white;
+    font-weight: bold;
+}
+//BOX COLORS
+
+.box-red {
+    @include box-colors();
+}
+.box-brown {
+    @include box-colors($pastel-orange);
+}
+.box-orange {
+    @include box-colors($pale-orange);
+}
+.box-yellow {
+    @include box-colors($light-gold);
+}
+.box-lemon {
+    @include box-colors($kiwi-green);
+}
+.box-green {
+    @include box-colors($weird-green);
+}
+.box-blue {
+    @include box-colors($blue);
+}
+.box-brown-outline {
+    background-color: $white;
+    color: $brown-shade;
+    border: 2px solid $brown-shade;
+}
+
+//JOKES CARDS
+
+.joke-cards {
+    display: inline-flex;
+    align-content: center;
+    width: 100%;
+    padding: 80px 0 70px 0;
+    flex-wrap: wrap;
+    margin: 0;
+    column-gap: 10px;
+
+    .item {
+        min-width: 32%;
+        max-width: 32%;
+        flex: 1 1 30%;
+        box-sizing: border-box;
+        margin-bottom: 10px;
+        text-align: left;
+        padding: 14px 20px 14px 20px;
+        background-color: $white2;
+
+        .title {
+            color: $black;
+            height: 42px;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        p {
+            font-size: 14px;
+            color: $black2;
+            padding-bottom: 40px;
+        }
+        .joke-stats-link {
+            float: right;
+            a {
+                color: $brown-shade;
+                display: inline-flex;
+                align-items: center;
+            }
+        }
+    }
+    .item:hover {
+        box-shadow: 0 2px 14px 0 $white3;
+    }
+}
+
+.h-line {
+    @include flex-center(inline-flex);
+    width: 100%;
+    height: 2px;
+    background-color: $white3;
+}
+.active-joke-title {
+    @include joke-title-button();
+    width: 100px;
+}
+
+// JOKES DETAILS
+.nav-background {
+    display: block;
+    background-color: $black;
+    padding: 20px;
+    width: fit-content;
+    box-sizing: border-box;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    margin: 50px 0 0 0;
+}
+
+.cl-9 {
+    float: left;
+    width: 75%;
+}
+
+.cl-3 {
+    float: left;
+    width: 25%;
+}
+
+.jokes-details-card {
+    background-color: $white2;
+    padding: 16px;
+    .head {
+        display: flex;
+        justify-content: space-between;
+        .jokes-category {
+            @include joke-title-button($weird-green, 2px 0 2px 0);
+            display: inline list-item;
+            width: 125px;
+        }
+        .trending {
+            color: $pastel-orange;
+            display: inline list-item;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+    .title-row {
+        display: flex;
+        margin: 6px 14px 8px 0;
+        width: 100%;
+        height: 100%;
+        clear: both;
+        position: relative;
+
+        .title-text {
+            font-size: 40px;
+            font-weight: bold;
+            color: $brown-shade;
+            width: fit-content;
+            width: 60%;
+            max-width: 100%;
+            text-align: left;
+        }
+        .title-meta {
+            width: 40%;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            margin-bottom: 10px;
+            .divider {
+                @include flex-center(inline-flex);
+                height: 2px;
+                background-color: $brown-shade;
+                width: 75%;
+            }
+            .title-no {
+                padding-left: 5%;
+                width: 20%;
+                display: inline-flex;
+                color: $brown-shade;
+            }
+        }
+    }
+    p {
+        text-align: left;
+        color: $black2;
+    }
+}
+.view-more {
+    font-weight: normal !important;
+    max-width: 200px !important;
+}
+
+.reaction {
+    float: left;
+    display: flex;
+    column-gap: 20px;
+    .likes .dislike {
+        display: flex;
+    }
+}
+
+.joke-details-footer {
+    margin-top: 20px;
+    padding-bottom: 50px;
+
+    .joke-nav {
+        display: flex;
+        column-gap: 10px;
+        float: right;
+        button {
+            display: flex;
+            background-color: $white2;
+            border: none;
+            color: $brown-shade;
+            padding: 12px 16px;
+        }
+
+        .anim-backward:hover {
+            .arrow-back {
+                margin-right: 6px;
+            }
+        }
+        .anim-forward:hover {
+            .arrow-forward {
+                margin-left: 10px;
+            }
+        }
+    }
+}
+
+.top-jokes {
+    padding: 30px 20px;
+    background-color: $white2;
+    text-align: left;
+    .title {
+        color: $black;
+        font-weight: bold;
+    }
+    li {
+        color: $black2;
+        text-decoration: underline;
+        list-style-type: none;
+    }
+}
+
+//FOOTER
+.footer {
+    background-image: url("../images/bitmap_2@3x.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: auto;
+    width: 100%;
+    .footer-content {
+        display: inline-grid;
+        display: -ms-inline-grid;
+        display: -moz-inline-grid;
+        text-align: left;
+        width: $width;
+        font-weight: bold;
+        font-size: 18px;
+        color: $white;
+        padding: 60px 0 60px 0;
+        .main-text {
+            padding-bottom: 20px;
+        }
+        span {
+            display: flex;
+            align-items: center;
+            a {
+                color: $brown-shade;
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+//ICONS
+
+.user-icon {
+    @include icons("../images/shape@3x.png", 16px);
+    margin-right: 4px;
+}
+
+.search-icon {
+    @include icons("../images/search-copy@3x.png");
+}
+
+.green-light {
+    @include icons("../images/green-light-copy@3x.png", 16px);
+}
+
+.arrow-head-back {
+    @include icons("../images/arrow-left@3x.png");
+}
+
+.arrow-head-forward {
+    @include icons("../images/arrow-left-copy@3x.png");
+    margin-left: 6px;
+}
+.arrow-forward {
+    @include icons("../images/path-copy@3x.png", 16px);
+}
+
+.arrow-forward-18 {
+    @include icons("../images/path-copy@3x.png");
+    margin-left: 10px;
+}
+
+.arrow-down {
+    @include icons("../images/path-copy-7@3x.png", 16px);
+}
+
+.dropdown-icon {
+    @include icons("../images/path_2@3x.png");
+    margin-left: 15px;
+    margin-top: 5px;
+}
+
+.icon-like {
+    @include icons("../images/hand@3x.png", 22px);
+}
+.icon-dislike {
+    @include icons("../images/hand-copy@3x.png", 22px);
+}
+
+.icon-success-rounded {
+    @include rounded-icon-background($weird-green);
+}
+.icon-danger-rounded {
+    @include rounded-icon-background($red);
+}
+
+// TEXT
+.success-text {
+    @include reaction-text($weird-green);
+}
+.danger-text {
+    @include reaction-text($red);
+}
+
+//Responsiveness
+@media all and (max-width: 960px) {
+    .top-nav {
+        .container {
+            .mobile-toggle {
+                display: block;
+                width: 10% !important;
+                height: fit-content;
+                color: $white;
+            }
+            li {
+                margin: 0;
+                display: none;
+                order: 1;
+                float: none;
+                a {
+                    display: block;
+                }
+            }
+        }
+
+        .active {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+            align-items: end;
+
+            .mobile-toggle {
+                padding: 5px 15px;
+                margin: 5px 0;
+            }
+
+            li:not(.mobile-toggle) {
+                order: 2;
+            }
+
+            li {
+                display: block;
+                padding: 15px 5px;
+                width: 100%;
+                height: auto;
+            }
+            .submenu-active {
+                ul {
+                    background-color: $black;
+                    li {
+                        color: $white;
+                        text-align: end;
+                        order: 3;
+                        display: block;
+                        padding: 3px;
+                        margin: 10px;
+                    }
+                }
+            }
+        }
+    }
+    .joke-cards {
+        padding-top: 40px;
+    }
+    .cl-container {
+        display: block;
+    }
+    .cl-9 {
+        width: 100%;
+    }
+
+    .cl-3 {
+        width: 100%;
+    }
+    .top-jokes {
+        text-align: center;
+    }
+}
+
+@media all and (max-width: 699px) {
+    .top-nav {
+        .container {
+            .mobile-toggle {
+                width: 15% !important;
+            }
+        }
+    }
+    .header {
+        .header-content {
+            display: grid;
+            justify-content: center;
+            width: 100%;
+            .header-caption {
+                font-size: 18px;
+            }
+            .search {
+                width: 315px;
+                input {
+                    width: 84%;
+                }
+            }
+        }
+    }
+
+    //JOKES TITILE CARDS
+
+    .cl-2 {
+        min-width: 32%;
+        max-width: 32%;
+        flex: 1 1 30%;
+    }
+    .box-brown-outline {
+        display: grid;
+        justify-items: center;
+    }
+
+    //JOKES CARDS
+
+    .joke-cards {
+        padding: 30px 0 70px 0;
+
+        .item {
+            min-width: 100%;
+        }
+    }
+
+    .nav-background {
+        padding: 15px;
+        margin: 10px 0 0 0;
+    }
+
+    .jokes-details-card {
+        .title-row {
+            display: block;
+            margin: 6px 14px 8px 0;
+            width: 100%;
+            height: 100%;
+            clear: both;
+            position: relative;
+
+            .title-text {
+                width: 100%;
+            }
+            .title-meta {
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+        p {
+            text-align: left;
+            color: $black2;
+        }
+    }
+    .top-jokes {
+        padding: 15px 0 0 0;
+    }
+    .reaction {
+        display: inline-flex;
+        justify-content: center;
+        float: none;
+        margin-bottom: 20px;
+    }
+}
