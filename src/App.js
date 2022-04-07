@@ -1,6 +1,6 @@
 import './App.css';
 import './assets/styles/styles.scss';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import JokeDetails from './pages/JokeDetails';
@@ -54,15 +54,12 @@ function App() {
 
   return (
     <div className="App">
-
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route exact path='/' element={< Home />}></Route>
-          <Route exact path='/joke' element={< JokeDetails />} onLeave={() => dispatch(storeSingle({}))}></Route>
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={< Home />}></Route>
+        <Route path='/joke' element={< JokeDetails />} onLeave={() => dispatch(storeSingle({}))}></Route>
+      </Routes>
+      <Footer />
     </div>
   );
 }

@@ -140,7 +140,7 @@ $grey: #b2b2b2;
 
         .submenu-active {
             .sub-display {
-                position: fixed;
+                position: absolute;
                 width: inherit;
                 margin-top: 25px;
 
@@ -155,7 +155,7 @@ $grey: #b2b2b2;
                     padding: 0 10px;
                     border-radius: 5px;
                     height: auto;
-                    position: fixed;
+                    position: absolute;
                     width: inherit;
                     background-color: $white2;
 
@@ -163,7 +163,7 @@ $grey: #b2b2b2;
 
                     ul {
                         list-style-type: none;
-                        display: inline;
+                        display: contents;
                         li {
                             display: block;
                             color: $black2;
@@ -690,13 +690,9 @@ $grey: #b2b2b2;
             }
             .submenu-active {
                 .sub-display {
-                    position: absolute;
                     width: max-content;
                     margin-top: 25px;
                     right: 30%;
-                    .sub-menu-list {
-                        position: absolute;
-                    }
                 }
             }
         }
