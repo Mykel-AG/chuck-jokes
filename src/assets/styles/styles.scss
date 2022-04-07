@@ -21,15 +21,16 @@ $grey: #b2b2b2;
 
 @mixin box-colors($color: $red) {
     background-color: $color;
+    cursor: pointer;
 }
 
-@mixin joke-title-button($bg-color: $kiwi-green, $padding: 3px 0 3px 0px) {
+@mixin joke-title-button($padding: 3px 0 3px 0px) {
     width: fit-content;
     box-sizing: border-box;
     text-align: center;
     padding: $padding;
     border-radius: 20px;
-    background-color: $bg-color;
+    background-color: $weird-green;
     font-size: 12px;
     font-weight: bold;
     color: $white;
@@ -70,7 +71,7 @@ $grey: #b2b2b2;
 .mb-50 {
     margin-bottom: 50px !important;
 }
-.mt-5{
+.mt-5 {
     margin-top: 5px;
 }
 .mt-50 {
@@ -81,6 +82,9 @@ $grey: #b2b2b2;
 }
 .pr-10 {
     padding-right: 10px;
+}
+.hide {
+    display: none;
 }
 .right {
     float: right;
@@ -100,7 +104,7 @@ $grey: #b2b2b2;
     .container {
         width: $width;
         align-content: center;
-        justify-content: end;
+        justify-content: flex-end;
         display: flex;
         flex-wrap: nowrap;
         list-style-type: none;
@@ -108,6 +112,8 @@ $grey: #b2b2b2;
         padding: 0;
 
         li {
+
+            cursor: pointer;
             align-content: center;
             float: right;
             height: 19px;
@@ -121,17 +127,68 @@ $grey: #b2b2b2;
                 text-align: center;
             }
 
-            ul {
-                list-style-type: none;
-                li {
-                    margin: 20px 64px 21px 0px;
-                    display: none;
+            
+        }
+
+        .submenu-active {
+
+            .sub-display {
+                position: fixed;
+                width: inherit;
+                margin-top: 25px;
+                
+                .pointer-left {
+                    background-color: $white2;
+                    margin-left: 150px;
+                    height: 10px;
+                    width: 15px;
+                    clip-path: polygon(0 100%, 100% 100%, 50% 0);
+                }
+                .sub-menu-list {
+                    padding: 0 10px;
+                    border-radius: 5px;
+                    height: auto;
+                    position: fixed;
+                    width: inherit;
+                    background-color: $white2;
+
+                    z-index: 100;
+
+                    ul {
+                        list-style-type: none;
+                        display: inline;
+                        li {
+                            display: block;
+                            color: $black2;
+                            text-align: left;
+                            width: 100%;
+                            padding: 10px 0;
+                            margin: 0;
+                            border-bottom: 2px solid;
+                            border-bottom-color: $white3;
+                            span{
+                                margin-left: 7px;
+                            }
+                        }
+                        li:hover{
+                            color: $brown-shade;
+                        }
+                    }
                 }
             }
         }
     }
     .mobile-toggle {
         display: none;
+    }
+}
+
+.top-nav {
+    .active {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        align-items: flex-end;
     }
 }
 .header {
@@ -172,12 +229,48 @@ $grey: #b2b2b2;
                 font-size: 14px;
                 outline: none;
                 background-color: rgba(255, 255, 255, 0);
-                color: white;
+                color: $white;
                 font-size: 16px;
                 padding-bottom: 10px;
-                margin: 0 10px;
+                padding: 0 10px;
             }
         }
+        .active-search {
+            background-color: $white !important;
+            input {
+                color: $black2 !important;
+            }
+        }
+    }
+    .result-box {
+        padding: 0px 10px;
+        display: block;
+        z-index: 100;
+        background-color: $white2;
+        position: relative;
+        text-align: left;
+        box-shadow: 0 2px 14px 0 $black2;
+        box-sizing: border-box;
+        border-radius: 2px;
+        .results {
+            div {
+                color: $grey;
+                padding: 10px 0;
+                display: block;
+                clear: both;
+                border-bottom: 2px solid;
+                border-bottom-color: $white3;
+            }
+        }
+    }
+    .pointer-right {
+        background-color: $white2;
+        margin-left: 15px;
+        display: block;
+        z-index: 100;
+        height: 10px;
+        width: 15px;
+        clip-path: polygon(0 100%, 100% 100%, 50% 0);
     }
 }
 
@@ -191,6 +284,7 @@ $grey: #b2b2b2;
     margin: 0;
     column-gap: 2%;
 }
+
 .cl-2 {
     min-width: 18%;
     max-width: 18%;
@@ -226,6 +320,7 @@ $grey: #b2b2b2;
     @include box-colors($blue);
 }
 .box-brown-outline {
+    cursor: pointer;
     background-color: $white;
     color: $brown-shade;
     border: 2px solid $brown-shade;
@@ -237,12 +332,13 @@ $grey: #b2b2b2;
     display: inline-flex;
     align-content: center;
     width: 100%;
-    padding: 80px 0 70px 0;
+    padding: 30px 0 70px 0;
     flex-wrap: wrap;
     margin: 0;
     column-gap: 10px;
 
     .item {
+        height: 276px;
         min-width: 32%;
         max-width: 32%;
         flex: 1 1 30%;
@@ -251,21 +347,27 @@ $grey: #b2b2b2;
         text-align: left;
         padding: 14px 20px 14px 20px;
         background-color: $white2;
+        position: relative;
 
         .title {
             color: $black;
-            height: 42px;
+            height: 32px;
             font-weight: bold;
             font-size: 18px;
+            margin: 16px 122px 32px 0;
         }
 
         p {
+            height: 154px;
             font-size: 14px;
             color: $black2;
             padding-bottom: 40px;
+            line-height: 1.57;
         }
         .joke-stats-link {
-            float: right;
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
             a {
                 color: $brown-shade;
                 display: inline-flex;
@@ -285,8 +387,7 @@ $grey: #b2b2b2;
     background-color: $white3;
 }
 .active-joke-title {
-    @include joke-title-button();
-    width: 100px;
+    @include joke-title-button(3px 5px 3px 5px);
 }
 
 // JOKES DETAILS
@@ -317,7 +418,7 @@ $grey: #b2b2b2;
         display: flex;
         justify-content: space-between;
         .jokes-category {
-            @include joke-title-button($weird-green, 2px 0 2px 0);
+            @include joke-title-button(2px 0 2px 0);
             display: inline list-item;
             width: 125px;
         }
@@ -371,6 +472,7 @@ $grey: #b2b2b2;
     }
 }
 .view-more {
+    cursor: pointer;
     font-weight: normal !important;
     max-width: 200px !important;
 }
@@ -471,8 +573,21 @@ $grey: #b2b2b2;
     @include icons("../images/search-copy@3x.png");
 }
 
+.search-icon-dark {
+    @include icons("../images/search-copy-2@3x.png");
+}
+
 .green-light {
-    @include icons("../images/green-light-copy@3x.png", 16px);
+    @include icons("../images/green-light@3x.png", 16px);
+}
+.orange-light {
+    @include icons("../images/orange-light@3x.png", 16px);
+}
+.blue-light {
+    @include icons("../images/blue-light@3x.png", 16px);
+}
+.red-light {
+    @include icons("../images/red-light@3x.png", 16px);
 }
 
 .arrow-head-back {
@@ -548,8 +663,8 @@ $grey: #b2b2b2;
         .active {
             display: flex;
             flex-wrap: wrap;
-            justify-content: end;
-            align-items: end;
+            justify-content: flex-end;
+            align-items: flex-end;
 
             .mobile-toggle {
                 padding: 5px 15px;
@@ -560,23 +675,21 @@ $grey: #b2b2b2;
                 order: 2;
             }
 
-            li {
+            .menu {
                 display: block;
                 padding: 15px 5px;
                 width: 100%;
                 height: auto;
             }
             .submenu-active {
-                ul {
-                    background-color: $black;
-                    li {
-                        color: $white;
-                        text-align: end;
-                        order: 3;
-                        display: block;
-                        padding: 3px;
-                        margin: 10px;
-                    }
+                .sub-display {
+                    position: absolute;
+                    width: max-content;
+                    margin-top: 25px;
+                    right: 30%;
+                    .sub-menu-list {
+                        position: absolute;
+                        }
                 }
             }
         }
@@ -593,6 +706,11 @@ $grey: #b2b2b2;
 
     .cl-3 {
         width: 100%;
+    }
+    .cl-2 {
+        min-width: 32%;
+        max-width: 32%;
+        flex: 1 1 30%;
     }
     .top-jokes {
         text-align: center;
@@ -627,9 +745,9 @@ $grey: #b2b2b2;
     //JOKES TITILE CARDS
 
     .cl-2 {
-        min-width: 32%;
-        max-width: 32%;
-        flex: 1 1 30%;
+        min-width: 45%;
+        max-width: 45%;
+        flex: 1 1 40%;
     }
     .box-brown-outline {
         display: grid;

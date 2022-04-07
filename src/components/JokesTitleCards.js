@@ -1,16 +1,32 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux';
+import { changeSelected } from '../utils/JokesSlice';
 
 function JokesTitleCards() {
+
+    const dispatch = useDispatch();
+    const colorArray = ['brown', 'orange', 'yellow', 'lemon', 'green', 'blue']
+    const jokes = useSelector((state) => state.allJokes.value);
+    const categories = Object.keys(jokes);
+    const unsortedJokes = useSelector((state) => state.allJokes.unsortedValues);
+
+    const titleClickHandler = (ele) => {
+        let key = ele, value = {};
+        if (key === "View All") {
+            value = unsortedJokes['result'];
+        }
+        else {
+            value = jokes[key];
+        }
+        dispatch(changeSelected({ key, value }))
+
+    };
+
+    const categoryBoxes = categories.map((ele, key) => <div onClick={() => titleClickHandler(ele)} key={key} className={`box-${colorArray[(key) % 6]} cl-2`}>{ele.toLocaleUpperCase()} JOKES</div>)
     return (
         <div className='cl-full'>
-            <div className='box-red cl-2'>Adult Jokes</div>
-            <div className='box-brown cl-2'>Dad Jokes</div>
-            <div className='box-orange cl-2'>Christmas Jokes</div>
-            <div className='box-yellow cl-2'>Job Jokes</div>
-            <div className='box-lemon cl-2'>Birthday Jokes</div>
-            <div className='box-green cl-2'>Social Jokes</div>
-            <div className='box-blue cl-2'>Puns</div>
-            <div className='box-brown-outline cl-2'>View All <i className='arrow-down right pr-10'></i></div>
+            {categoryBoxes}
+            <div onClick={() => titleClickHandler("View All")} className='box-brown-outline cl-2'>View All<i className='arrow-down right pr-10'></i></div>
         </div>
     )
 }

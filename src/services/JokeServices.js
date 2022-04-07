@@ -10,3 +10,14 @@ export async function getAllJokes() {
     }
     
 }
+
+export async function searchJokes(term) {
+
+    try{
+        const response = await axios.get(`https://api.chucknorris.io/jokes/search?query=${term}`);
+        return response.data;
+    }catch(error) {
+        return [];
+    }
+    
+}

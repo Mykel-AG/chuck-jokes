@@ -1,6 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 function JokeItem() {
+    const navigate = useNavigate();
+    const joke = useSelector((state) => state.allJokes.singleJoke);
+    const category = joke.categories && joke.categories.length > 0 ? joke.categories[0] : 'UNCATEGORIZED';
+    const details = joke.value ? joke.value : '';
+    useEffect(()=> {
+        if (Object.keys(joke).length === 0){
+            navigate('/');
+        }
+    }, [])
+    
     return (
         <div className='container mb-50'>
             <div className='nav-background'><i className='arrow-head-back'></i></div>
@@ -8,11 +20,11 @@ function JokeItem() {
             <div className='cl-9 mt-50'>
                 <div className='jokes-details-card'>
                     <div className='head'>
-                        <span className='jokes-category'>SOCIAL JOKES</span>
+                        <span className='jokes-category'>{category.toUpperCase()} JOKES</span>
                         <span className='trending'>TRENDING</span>
                     </div>
                     <div className='title-row'>
-                        <div className='title-text'>The Granny Joke </div>
+                        <div className='title-text'>{category !== '' ? category.charAt(0).toUpperCase() + category.slice(1) : 'Uncategotized'} Joke </div>
                         <div className='title-meta'>
                             <span className='divider'></span>
                             <span className='title-no'>No #1</span>
@@ -20,12 +32,7 @@ function JokeItem() {
 
                     </div>
                     <p>
-                        he href attribute is required for an anchor to be
-                        keyboard accessible. Provide a valid, navigable address
-                        as the href value. If you cannot provide an href,
-                        he href attribute is required for an anchor to be
-                        keyboard accessible. Provide a valid, navigable address
-                        as the href value. If you cannot provide an href,
+                        {details}
                     </p>
 
                 </div>

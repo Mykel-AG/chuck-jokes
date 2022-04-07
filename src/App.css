@@ -23,6 +23,7 @@
   font-family: "Montserrat";
   font-weight: normal;
   text-align: center;
+  overflow: hidden;
 }
 
 .App-logo {
