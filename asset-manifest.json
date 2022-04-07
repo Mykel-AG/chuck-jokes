@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/chuck-jokes/static/css/main.fae329d0.css",
+    "main.css": "/chuck-jokes/static/css/main.54dfb236.css",
     "main.js": "/chuck-jokes/static/js/main.59ce037d.js",
     "static/js/787.68179c88.chunk.js": "/chuck-jokes/static/js/787.68179c88.chunk.js",
     "static/media/bitmap@3x.png": "/chuck-jokes/static/media/bitmap@3x.471b5b1d67bf4907dcfb.png",
@@ -13,12 +13,12 @@
     "static/media/Montserrat-Regular.ttf": "/chuck-jokes/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/Montserrat-Bold.ttf": "/chuck-jokes/static/media/Montserrat-Bold.079ca05d3ded9bc107ab.ttf",
     "index.html": "/chuck-jokes/index.html",
-    "main.fae329d0.css.map": "/chuck-jokes/static/css/main.fae329d0.css.map",
+    "main.54dfb236.css.map": "/chuck-jokes/static/css/main.54dfb236.css.map",
     "main.59ce037d.js.map": "/chuck-jokes/static/js/main.59ce037d.js.map",
     "787.68179c88.chunk.js.map": "/chuck-jokes/static/js/787.68179c88.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.fae329d0.css",
+    "static/css/main.54dfb236.css",
     "static/js/main.59ce037d.js"
   ]
 }
