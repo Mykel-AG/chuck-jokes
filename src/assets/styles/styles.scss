@@ -24,6 +24,17 @@ $grey: #b2b2b2;
     cursor: pointer;
 }
 
+@mixin responsive-bg-image($url){
+    background-image: url($url+'@3x.png');
+    @media all and (max-width: 960px) {
+        background-image: url($url+'@2x.png');
+    }
+    @media all and (max-width: 699px) {
+        background-image: url($url+'.png');
+    }
+
+}
+
 @mixin joke-title-button($padding: 3px 0 3px 0px) {
     width: fit-content;
     box-sizing: border-box;
@@ -38,11 +49,12 @@ $grey: #b2b2b2;
 
 @mixin icons($url, $dimension: 18px) {
     display: inline-block;
-    background: url($url);
+    @include responsive-bg-image($url);
     background-size: contain;
     background-repeat: no-repeat;
     width: $dimension;
     height: $dimension;
+    
 }
 
 @mixin reaction-text($color) {
@@ -192,7 +204,7 @@ $grey: #b2b2b2;
     }
 }
 .header {
-    background-image: url("../images/bitmap@3x.png");
+    @include responsive-bg-image('../images/bitmap');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -532,7 +544,7 @@ $grey: #b2b2b2;
 
 //FOOTER
 .footer {
-    background-image: url("../images/bitmap_2@3x.png");
+    @include responsive-bg-image('../images/bitmap_2');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -565,63 +577,63 @@ $grey: #b2b2b2;
 //ICONS
 
 .user-icon {
-    @include icons("../images/shape@3x.png", 16px);
+    @include icons("../images/shape", 16px);
     margin-right: 4px;
 }
 
 .search-icon {
-    @include icons("../images/search-copy@3x.png");
+    @include icons("../images/search-copy");
 }
 
 .search-icon-dark {
-    @include icons("../images/search-copy-2@3x.png");
+    @include icons("../images/search-copy-2");
 }
 
 .green-light {
-    @include icons("../images/green-light@3x.png", 16px);
+    @include icons("../images/green-light", 16px);
 }
 .orange-light {
-    @include icons("../images/orange-light@3x.png", 16px);
+    @include icons("../images/orange-light", 16px);
 }
 .blue-light {
-    @include icons("../images/blue-light@3x.png", 16px);
+    @include icons("../images/blue-light", 16px);
 }
 .red-light {
-    @include icons("../images/red-light@3x.png", 16px);
+    @include icons("../images/red-light", 16px);
 }
 
 .arrow-head-back {
-    @include icons("../images/arrow-left@3x.png");
+    @include icons("../images/arrow-left");
 }
 
 .arrow-head-forward {
-    @include icons("../images/arrow-left-copy@3x.png");
+    @include icons("../images/arrow-left-copy");
     margin-left: 6px;
 }
 .arrow-forward {
-    @include icons("../images/path-copy@3x.png", 16px);
+    @include icons("../images/path-copy", 16px);
 }
 
 .arrow-forward-18 {
-    @include icons("../images/path-copy@3x.png");
+    @include icons("../images/path-copy");
     margin-left: 10px;
 }
 
 .arrow-down {
-    @include icons("../images/path-copy-7@3x.png", 16px);
+    @include icons("../images/path-copy-7", 16px);
 }
 
 .dropdown-icon {
-    @include icons("../images/path_2@3x.png");
+    @include icons("../images/path_2");
     margin-left: 15px;
     margin-top: 5px;
 }
 
 .icon-like {
-    @include icons("../images/hand@3x.png", 22px);
+    @include icons("../images/hand", 22px);
 }
 .icon-dislike {
-    @include icons("../images/hand-copy@3x.png", 22px);
+    @include icons("../images/hand-copy", 22px);
 }
 
 .icon-success-rounded {
