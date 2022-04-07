@@ -24,15 +24,15 @@ $grey: #b2b2b2;
     cursor: pointer;
 }
 
-@mixin responsive-bg-image($url){
-    background-image: url($url+'@3x.png');
+@mixin responsive-bg-image($url) {
+    background-image: url($url + "@3x.png");
     @media all and (max-width: 960px) {
-        background-image: url($url+'@2x.png');
+        background-image: url($url + "@2x.png");
     }
+    
     @media all and (max-width: 699px) {
-        background-image: url($url+'.png');
+        background-image: url($url + ".png");
     }
-
 }
 
 @mixin joke-title-button($padding: 3px 0 3px 0px) {
@@ -54,7 +54,6 @@ $grey: #b2b2b2;
     background-repeat: no-repeat;
     width: $dimension;
     height: $dimension;
-    
 }
 
 @mixin reaction-text($color) {
@@ -124,7 +123,6 @@ $grey: #b2b2b2;
         padding: 0;
 
         li {
-
             cursor: pointer;
             align-content: center;
             float: right;
@@ -138,17 +136,14 @@ $grey: #b2b2b2;
                 width: 100%;
                 text-align: center;
             }
-
-            
         }
 
         .submenu-active {
-
             .sub-display {
                 position: fixed;
                 width: inherit;
                 margin-top: 25px;
-                
+
                 .pointer-left {
                     background-color: $white2;
                     margin-left: 150px;
@@ -178,11 +173,11 @@ $grey: #b2b2b2;
                             margin: 0;
                             border-bottom: 2px solid;
                             border-bottom-color: $white3;
-                            span{
+                            span {
                                 margin-left: 7px;
                             }
                         }
-                        li:hover{
+                        li:hover {
                             color: $brown-shade;
                         }
                     }
@@ -204,7 +199,7 @@ $grey: #b2b2b2;
     }
 }
 .header {
-    @include responsive-bg-image('../images/bitmap');
+    @include responsive-bg-image("../images/bitmap");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -544,7 +539,7 @@ $grey: #b2b2b2;
 
 //FOOTER
 .footer {
-    @include responsive-bg-image('../images/bitmap_2');
+    @include responsive-bg-image("../images/bitmap_2");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -701,7 +696,7 @@ $grey: #b2b2b2;
                     right: 30%;
                     .sub-menu-list {
                         position: absolute;
-                        }
+                    }
                 }
             }
         }
